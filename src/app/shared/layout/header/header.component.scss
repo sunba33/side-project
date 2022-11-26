@@ -16,5 +16,10 @@
 
   &--left {
     padding-left: 1rem;
+    display: flex;
+    justify-content: space-between;
   }
+}
+.cursor-pointer{
+  cursor: pointer;
 }

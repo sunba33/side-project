@@ -2,10 +2,16 @@
   <div class='header-container'>
     <div class='header-container--left'>
       <img src='https://www.bitlo.com/assets/static/img/bitlo_logo_white_@2x.png' alt='header img'>
+      <ul class='ml-4 d-flex justify-content-center align-items-center list-unstyled'>
+        <li class='mr-2 cursor-pointer' [routerLink]='["markets"]'><a>Markets</a></li>
+        <li class='mr-2 cursor-pointer' [routerLink]='["profile"]'><a>Profile</a></li>
+        <li class='mr-2 cursor-pointer' [routerLink]='["/profile/bakiyeler"]'><a>Balances</a></li>
+        <li class='mr-2 cursor-pointer' [routerLink]='["/profile/acik-emirler"]'><a>Open Orders</a></li>
+      </ul>
     </div>
     <div class='header-container--right'>
       <a *ngIf='!isLoggedIn' [routerLink]="['/login']">Giriş Yap</a>
-      <a class='cursor-pointer' [routerLink]="['/logout']" *ngIf='isLoggedIn' >Çıkış Yap</a>
+      <a class='cursor-pointer' [routerLink]="['/logout']" *ngIf='isLoggedIn'>Çıkış Yap</a>
     </div>
   </div>
 </nav>
