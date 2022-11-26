@@ -1,0 +1,21 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-12'>
+      <ul *ngIf='market'>
+        <li>{{market.marketCode.replace('-', '/')}}</li>
+        <li>{{market.currentQuote | number : '1.2-2'}}</li>
+        <li>{{market.change24h | number : '1.2-2'}}</li>
+        <li  class='{{+market.change24h > 0 ? "text-success" : +market.change24h === 0 ? "" : "text-danger"}}'>{{market.change24hPercent | number : '1.2-2'}}</li>
+        <li>{{market.highestQuote24h | number : '1.2-2'}}</li>
+        <li>{{market.lowestQuote24h | number : '1.2-2'}}</li>
+        <li>{{market.weightedAverage24h | number : '1.2-2'}}</li>
+        <li>
+          <img
+            class='img-custom'
+            src='https://static.bitlo.com/cryptologossvg/{{market.marketCode.substr(0, market.marketCode.indexOf("-")).toLocaleLowerCase()}}.svg'
+            alt='assetImage'>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

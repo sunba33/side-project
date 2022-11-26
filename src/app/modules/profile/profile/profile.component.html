@@ -1,0 +1,48 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-12'>
+      <div class='profile-container'>
+        <div class='profile-item'>
+          <p>firstName</p>
+          <p>{{profile?.firstName}}</p>
+        </div>
+        <div class='profile-item'>
+          <p>lastName</p>
+          <p>{{profile?.lastName}}</p>
+        </div>
+        <div class='profile-item'>
+          <p>dateOfBirth</p>
+          <p>{{profile?.dateOfBirth | date:'d MMMM y' }}</p>
+        </div>
+        <div class='profile-item'>
+          <p>phoneNumber</p>
+          <p>{{
+            (profile?.phoneNumber | slice:0:3) +
+            ' ' +
+            (profile?.phoneNumber | slice:3:6) +
+            ' ' +
+            (profile?.phoneNumber | slice:6:9) +
+            ' ' +
+            (profile?.phoneNumber | slice:9:11) +
+            ' ' +
+            (profile?.phoneNumber | slice:11:13)
+            }}</p>
+        </div>
+        <div class='profile-item'>
+          <p>identityNumber</p>
+          <p>{{profile?.identityNumber }}</p>
+        </div>
+        <div class='profile-item'>
+          <p>updateDate</p>
+          <p>{{profile?.updateDate }}</p>
+        </div>
+      </div>
+      <div class='buttons-container'>
+        <ul>
+          <li><a [routerLink]='["/profile/bakiyeler"]'>Bakiyeler</a></li>
+          <li><a [routerLink]='["/profile/acik-emirler"]'>Açık Emirler</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

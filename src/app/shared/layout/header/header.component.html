@@ -1,0 +1,11 @@
+<nav>
+  <div class='header-container'>
+    <div class='header-container--left'>
+      <img src='https://www.bitlo.com/assets/static/img/bitlo_logo_white_@2x.png' alt='header img'>
+    </div>
+    <div class='header-container--right'>
+      <a *ngIf='!isLoggedIn' [routerLink]="['/login']">Giriş Yap</a>
+      <a class='cursor-pointer' [routerLink]="['/logout']" *ngIf='isLoggedIn' >Çıkış Yap</a>
+    </div>
+  </div>
+</nav>

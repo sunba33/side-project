@@ -1,0 +1,53 @@
+<div class='container mt-5 mb-5'>
+  <div class='row'>
+    <div class='col-12'>
+      <input class='form-control w-50 mb-4' (input)='onInputValue()' type='text' [(ngModel)]='searchValue'>
+      <table class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Market Code</th>
+          <th scope="col">currentQuote</th>
+          <th scope="col">change24h</th>
+          <th scope="col">change24hPercent</th>
+          <th scope="col">highestQuote24h</th>
+          <th scope="col">lowestQuote24h</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let market of markets; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td class='cursor-pointer' (click)='onClickMarketCode(market.marketCode)'>
+            {{ market.marketCode }}
+          </td>
+          <td>{{ market.currentQuote| number : '1.2-2'   }}</td>
+          <td
+            class='{{+market.change24h > 0 ? "text-success" : +market.change24h === 0 ? "" : "text-danger"}}'>{{ market.change24h | number : '1.2-2' }}</td>
+          <td>{{ market.change24hPercent| number : '1.2-2'   }}</td>
+          <td>{{ market.highestQuote24h | number : '1.2-2'  }}</td>
+          <td>{{ market.lowestQuote24h | number : '1.2-2'  }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <ul *ngIf='filteredMarkets.length > 0'>
+        <li>Bugün {{positiveChanges.length}} mareketin fiyat değişim yüzdesi pozitif olmuştur</li>
+        <li>Bugün en fazla artış gösteren (change24hPercent) market {{biggestChangePositive.marketCode}} marketi
+          olmuştur.
+        </li>
+        <li *ngIf='+biggestChangeNegative.change24hPercent < 0'>Bugün en fazla değer kaybeden (change24hPercent)
+          market {{biggestChangeNegative.marketCode}} marketi
+          olmuştur.
+        </li>
+        <li>Fiyatı (currentQuote) 10,000 TRY üzerinde olan toplam {{moreThan(10000).length}} adet market vardır.
+        </li>
+        <li>Fiyatı (currentQuote) 1.00 TRY’den daha az olan toplam {{lessThan(1).length}} adet market vardır.
+        </li>
+        <li>Tüm marketlerdeki fiyatların toplamının (currentQuote) aritmetik ortalaması {{mean| number : '1.2-2'}} TRY
+          dir.
+        </li>
+        <li>1 BTC = {{usd.currentQuote | number : '1.2-2'}} ABD dolarıdır.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+.profile-container {
+  margin-top: 2rem;
+  border: 1px solid black;
+}
+
+.profile-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  &:not(:last-child){
+    border-bottom: 1px solid black;
+  }
+
+  & p {
+    margin-bottom: 0;
+    padding: 1rem;
+
+    &:first-child {
+      border-right: 1px solid black;
+    }
+
+    width: 50%;
+  }
+}

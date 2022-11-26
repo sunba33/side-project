@@ -1,0 +1,20 @@
+.header-container {
+  height: 7vh;
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #0a2363;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--right {
+    padding-right: 2rem;
+  }
+
+  &--left {
+    padding-left: 1rem;
+  }
+}
